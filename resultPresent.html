@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>대시보드 리뉴얼</title>
+
+    <link href="css/common.css" rel="stylesheet" type="text/css">
+    <link href="css/style.css" rel="stylesheet" type="text/css">
+
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+    <script src="https://code.highcharts.com/modules/export-data.js"></script>
+    <script src="https://code.highcharts.com/modules/accessibility.js"></script>
+</head>
+<body>
+    <!-- 왼쪽 메뉴 -->
+    <section class="leftMenu">
+        <h2 class="hidden">왼쪽 메뉴 영역</h2>
+        
+        <p class="menuIcon">
+            <img src="images/menu.svg" alt="메뉴 아이콘">
+        </p>
+        
+        <ul class="mainMenu">
+            <li class="action">
+                <img src="images/computer.svg" alt="대시보드 메뉴 아이콘">
+                대시보드
+
+                <ul class="subMenu">
+                    <li>
+                        <a href="predictionReport.html">발전 현황 및 예측 정보</a>
+                    </li>
+                    <li>
+                        <a href="biddingReport.html">발전 현황 및 입찰 정보</a>
+                    </li>
+                    <li>
+                        <a href="predictionType.html">예측유형별 발전 정보</a>
+                    </li>
+                    <li>
+                        <a href="regionPresent.html">지역별 기상/발전 현황</a>
+                    </li>
+                    <li>
+                        <a href="informReport.html">알람 현황</a>
+                    </li>
+                </ul>
+            </li>
+            <li class="action">
+                <img src="images/user.svg" alt="사용자 메뉴 아이콘">
+                사용자
+
+                <ul>
+                    <li>
+                        <a href="predictionTypeInquiry.html">예측유형별 상세 이력 조회</a>
+                    </li>
+                    <li>
+                        <a href="bidInquiry.html">입찰 이력 조회</a>
+                    </li>
+                    <li>
+                        <a href="bidCreat.html">입찰서 생성</a>
+                    </li>
+                    <li>
+                        <a href="weatheInquiry.html">기상 이력 조회</a>
+                    </li>
+                    <li class="action">
+                        <a href="#">발전실적 수신 현황</a>
+                    </li>
+                </ul>
+            </li>
+            <li class="action">
+                <img src="images/gear.svg" alt="관리자 메뉴 아이콘">
+                관리자
+
+                <ul>
+                    <li>
+                        <a href="login.html">로그인</a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </section>
+
+    <!-- 본문 -->
+    <article class="content">
+        <h2 class="hidden">본문 내용 영역</h2>
+
+        <header>
+            <h1>
+                <a href="#">
+                    <!--로고 영역-->
+
+                    대시보드 리뉴얼
+                </a>
+            </h1>
+
+            <ul class="userMenu">
+                <li>2024.05.10. 14:00 00</li>
+            </ul>
+        </header>
+
+
+        <!-- 발전실적 수신 현황 -->
+        <section class="resultPresent contentStyle">
+            <h2>발전실적 수신 현황</h2>
+
+            <div class="container_01 statistics">
+                <section>
+                    <h5>통합</h5>
+                    <p>
+                        15
+                        <span>개소</span>
+                    </p>
+
+                    <img src="images/icon_09.svg" alt="통합 아이콘">
+                </section>
+
+                <section>
+                    <h5>설비 용량</h5>
+                    <p>
+                        167.833
+                        <span>MW</span>
+                    </p>
+
+                    <img src="images/icon_10.svg" alt="설비 용량 아이콘">
+                </section>
+
+                <section>
+                    <h5>현재 출력</h5>
+                    <p>
+                        6.441
+                        <span>MW</span>
+                    </p>
+
+                    <img src="images/icon_11.svg" alt="현재 출력 아이콘">
+                </section>
+
+                <section>
+                    <h5>미수신 발전단지</h5>
+                    <p>
+                        13
+                        <span>개소</span>
+                    </p>
+
+                    <img src="images/icon_12.svg" alt="미수신 발전단지 아이콘">
+                </section>
+            </div>
+
+            <div class="boxStyle">
+                <div class="search">
+                    <p class="buttonIcon">
+                        <img src="images/search.svg" alt="검색 버튼 아이콘" class="icon">
+                    </p>
+
+                    <input type="text" value="" class="input" placeholder="발전 단지명을 입력하세요">
+                </div>
+
+                <section>
+                    <h3 class="hidden">발전실적 수신 현황 내용 영역</h3>
+
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>No</th>
+                                <th>설비 유형</th>
+                                <th>발전 단지명</th>
+                                <th>설비용량(MW)</th>
+                                <th>현재출력(MW)</th>
+                                <th>취득 시간</th>
+                                <th>수신 상태</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <script>
+                                for(let i = 1; i <= 10; i++) {
+                                    let td = '' +
+                                            '<tr>' + 
+                                                '<td>'+ i +'</td>' +
+                                                '<td>태양광</td>' +
+                                                '<td>썬리치태양광발전소</td>' +
+                                                '<td>0.497</td>' +
+                                                '<td>-</td>' +
+                                                '<td>&nbsp;</td>' +
+                                                '<td>' +
+                                                    '<span class="label labelRed">미수신</span>' +
+                                                '</td>' +
+                                            '</tr>';
+
+                                    document.write(td);
+                                }
+                            </script>
+                            <tr>
+                                <td>11</td>
+                                <td>풍력</td>
+                                <td>가시리풍력발전소</td>
+                                <td>30.000</td>
+                                <td>0.672</td>
+                                <td>10:00</td>
+                                <td>
+                                    <span class="label labelGreen">양호</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>12</td>
+                                <td>풍력</td>
+                                <td>울진현종산풍력</td>
+                                <td>53.400</td>
+                                <td>5.769</td>
+                                <td>10:00</td>
+                                <td>
+                                    <span class="label labelGreen">양호</span>
+                                </td>
+                            </tr>
+                            <script>
+                                for(let i = 13; i <= 15; i++) {
+                                    let td = '' +
+                                            '<tr>' + 
+                                                '<td>'+ i +'</td>' +
+                                                '<td>태양광</td>' +
+                                                '<td>제주삼달풍력발전기</td>' +
+                                                '<td>0.497</td>' +
+                                                '<td>-</td>' +
+                                                '<td>&nbsp;</td>' +
+                                                '<td>' +
+                                                    '<span class="label labelRed">미수신</span>' +
+                                                '</td>' +
+                                            '</tr>';
+
+                                    document.write(td);
+                                }
+                            </script>
+                        </tbody>
+                    </table>
+                </section>
+            </div>
+        </section>
+    </article>
+</body>
+</html>

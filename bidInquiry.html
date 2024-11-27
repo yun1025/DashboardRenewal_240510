@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>대시보드 리뉴얼</title>
+
+    <link href="css/common.css" rel="stylesheet" type="text/css">
+    <link href="css/style.css" rel="stylesheet" type="text/css">
+
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/highcharts-more.js"></script>
+    <script src="https://code.highcharts.com/modules/data.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+    <script src="https://code.highcharts.com/modules/export-data.js"></script>
+    <script src="https://code.highcharts.com/modules/accessibility.js"></script>
+
+    <!-- 달력 플러그인 -->
+    <script src="https://cdn.jsdelivr.net/npm/color-calendar/dist/bundle.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/color-calendar@1.0.5/dist/css/theme-glass.css">
+</head>
+<body>
+    <!-- 왼쪽 메뉴 -->
+    <section class="leftMenu">
+        <h2 class="hidden">왼쪽 메뉴 영역</h2>
+        
+        <p class="menuIcon">
+            <img src="images/menu.svg" alt="메뉴 아이콘">
+        </p>
+        
+        <ul class="mainMenu">
+            <li class="action">
+                <img src="images/computer.svg" alt="대시보드 메뉴 아이콘">
+                대시보드
+
+                <ul class="subMenu">
+                    <li>
+                        <a href="predictionReport.html">발전 현황 및 예측 정보</a>
+                    </li>
+                    <li>
+                        <a href="biddingReport.html">발전 현황 및 입찰 정보</a>
+                    </li>
+                    <li>
+                        <a href="predictionType.html">예측유형별 발전 정보</a>
+                    </li>
+                    <li>
+                        <a href="regionPresent.html">지역별 기상/발전 현황</a>
+                    </li>
+                    <li>
+                        <a href="informReport.html">알람 현황</a>
+                    </li>
+                </ul>
+            </li>
+            <li class="action">
+                <img src="images/user.svg" alt="사용자 메뉴 아이콘">
+                사용자
+
+                <ul>
+                    <li>
+                        <a href="predictionTypeInquiry.html">예측유형별 상세 이력 조회</a>
+                    </li>
+                    <li class="action">
+                        <a href="#">입찰 이력 조회</a>
+                    </li>
+                    <li>
+                        <a href="bidCreat.html">입찰서 생성</a>
+                    </li>
+                    <li>
+                        <a href="weatheInquiry.html">기상 이력 조회</a>
+                    </li>
+                    <li>
+                        <a href="resultPresent.html">발전실적 수신 현황</a>
+                    </li>
+                </ul>
+            </li>
+            <li class="action">
+                <img src="images/gear.svg" alt="관리자 메뉴 아이콘">
+                관리자
+
+                <ul>
+                    <li>
+                        <a href="login.html">로그인</a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </section>
+
+    <!-- 본문 -->
+    <article class="content">
+        <h2 class="hidden">본문 내용 영역</h2>
+
+        <header>
+            <h1>
+                <a href="#">
+                    <!--로고 영역-->
+
+                    대시보드 리뉴얼
+                </a>
+            </h1>
+
+            <ul class="userMenu">
+                <li>2024.05.10. 14:00 00</li>
+            </ul>
+        </header>
+
+        <!-- 입찰 이력 조회 -->
+        <section class="bidInquiry calendarStyle contentStyle">
+            <h2>입찰 이력 조회</h2>
+
+            <div class="box_01">
+                <ul class="switch boxStyle">
+                    <li class="action">일보</li>
+                    <li>월보</li>
+                </ul>
+
+                <section class="calendar">
+                    <h3 class="hidden">예측 일자 선택(달력) 영역</h3>
+
+                    <div id="calendar"></div>
+
+                    <p class="warningIcon">
+                        <img src="images/warning.svg" alt="아이콘에 마우스를 올려주세요" title="화면 구성을 위한 임시 달력입니다 추후 개발용 달력으로 변경하여 사용해주세요">
+                    </p>
+                </section>
+
+                <section class="boxStyle">
+                    <h2 class="hidden">입력 정보 영역</h2>  
+
+                    <ul class="dataList">
+                        <li>
+                            <h4>자원 형태</h4>
+
+                            <select>
+                                <option value="">개별 자원</option>
+                                <option value="">집합 자원</option>
+                            </select>
+                        </li>
+                        <li>
+                            <h4>자원 명칭</h4>
+
+                            <select>
+                                <option value="">제주삼달풍력(JSD_STA_JEJU_01)</option>
+                                <option value="">제주태양광모의용(R001)</option>
+                                <option value="">탐라해상풍력(V002)</option>
+                                <option value="">가시리풍력#1(V003)</option>
+                                <option value="">가시리풍력(V004)</option>
+                                <option value="">울진현종산풍력(V006)</option>
+                            </select>
+                        </li>
+                        <li>
+                            <h4>전력거래 개시일</h4>
+
+                            <p>-</p>
+                        </li>
+                        <li>
+                            <h4>소규모 자원 개수</h4>
+
+                            <p>1개</p>
+                        </li>
+                        <li>
+                            <h4>설비 용량</h4>
+
+                            <p>33.000 MW</p>
+                        </li>
+                    </ul>
+                </section>
+            </div>
+
+            <div class="box_02">
+                <!-- <h2>2024년 5월 27일</h2> -->
+                
+                <section class="timeSeries boxStyle">
+                    <h3>시계열</h3>
+
+                    <div id="timeSeries" class="chartArea"></div>
+                </section>
+
+                <section class="errFrequency boxStyle">
+                    <h3>오차 빈도</h3>
+
+                    <div id="errFrequency" class="chartArea"></div>
+
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>이용률</th>
+                                <th>비율(%)</th>
+                                <th>발전량(MWh)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>10%미만</td>
+                                <td>2.209</td>
+                                <td>4.144</td>
+                            </tr>
+                            <tr>
+                                <td>10%이상</td>
+                                <td>97.791</td>
+                                <td>183.456</td>
+                            </tr>
+                            <tr>
+                                <td>합계</td>
+                                <td>100</td>
+                                <td>187.6</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>오차율</th>
+                                <th>비율(%)</th>
+                                <th>발전량(MWh)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>6% 이하</td>
+                                <td>44.444</td>
+                                <td>52.752</td>
+                            </tr>
+                            <tr>
+                                <td>6~8%</td>
+                                <td>11.111</td>
+                                <td>18.76</td>
+                            </tr>
+                            <tr>
+                                <td>8% 초과</td>
+                                <td>44.444</td>
+                                <td>111.944</td>
+                            </tr>
+                            <tr>
+                                <td>합계</td>
+                                <td>100</td>
+                                <td>183.456</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <h5>* 시간대별 실적 발전량 설비용량 대비 10%이상 기준</h5>
+                </section>
+                
+                <section class="timeData boxStyle">
+                    <h3>시간대별 데이터</h3>
+
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>시간대</th>
+                                <th>1차 입찰 발전량(MWh)</th>
+                                <th>2차 입찰 발전량(MWh)</th>
+                                <th>실적 발전량(MWh)</th>
+                                <th>오차율(%)</th>
+                                <th>이용률(%)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <script>
+                                for(let i = 1; i <= 24; i++) {
+                                    let td = '' +
+                                            '<tr>' + 
+                                                '<td>'+ i +'시</td>' +
+                                                '<td>'+ i +'.947</td>' +
+                                                '<td>'+ i +'.386</td>' +
+                                                '<td>'+ i +'.497</td>' +
+                                                '<td>'+ i +'.232</td>' +
+                                                '<td>'+ i +'.982</td>' +
+                                            '</tr>';
+
+                                    document.write(td);
+                                }
+                            </script>
+                            <!-- 
+                            <tr>
+                                <td>1시</td>
+                                <td>7.947</td>
+                                <td>6.386</td>
+                                <td>1.232</td>
+                                <td>17.982</td>
+                                <td>3.733</td>
+                            </tr>
+                            -->
+                        </tbody>
+                    </table>
+
+                    <div class="buttonZone">
+                        <input type="button" value="CSV 다운로드" class="button buttonBlue">
+                    </div>
+                </section>
+            </div>
+        </section>
+    </article>
+
+<script>
+/* 달력 플러그 인 */
+let calA = new Calendar({
+  id: "#calendar",
+  theme: "glass",
+  weekdayType: "short",
+  monthDisplayType: "long",
+  primaryColor: "#3894f4",
+  //headerColor: "#38475a",
+  headerBackgroundColor: "#38475a"
+});
+
+
+//차트 색상
+const color = ['#3894f4', '#05c0e2', '#9c60ef', '#474ed5', '#5d84f3'];
+
+//시게열, timeSeries
+Highcharts.chart('timeSeries', {
+    colors: color,
+    exporting: {    //차트 내 메뉴 false 삭제 / true 유지
+        enabled: false
+    },
+    credits: {      //highchart 워터마크 숨김처리
+        enabled: false
+    },
+    chart: {
+        zoomType: 'xy'
+    },
+    title: {
+        text: ''
+    },
+    xAxis: [
+        {
+            categories: ['1시','2시','3시','4시','5시','6시','7시','8시','9시','10시','11시','12시','13시','14시','15시','16시','17시','18시','19시','20시','21시','22시','23시','24시']
+        }
+    ],
+    yAxis: [
+        {
+            // Primary yAxis
+            labels: {
+                style: {
+                    color: '#a5abb2'
+                }
+            },
+            title: {
+                text: ''
+            },
+            plotLines: [{
+                color: 'black',
+                width: 2,
+                value: 25,
+                animation: {
+                    duration: 1000,
+                    defer: 4000
+                },
+                label: {
+                    text: '설비용량(33.000MW)',
+                    align: 'right',
+                    x: 0
+                }
+            }]
+        },
+        {
+            // Secondary yAxis
+            title: {
+                text: '',
+                style: {
+                    color: '#6b8abc'
+                }
+            },
+            labels: {
+                format: '',
+                style: {
+                    color: '#6b8abc'
+                }
+            },
+            opposite: true
+        }
+    ],
+    legend: {
+        align: 'right',
+        x: 5,
+        verticalAlign: 'top',
+        y: 0,
+        floating: false
+    },
+    tooltip: {
+        shared: false
+    },
+    series: [
+        {
+            name: '실적',
+            type: 'column',
+            data: [3, 5, 12, 10, 21, 18, 20, 16, 10, 5, 0, 0, 3, 4, 5, 12, 10, 9, 8, 5, 6, 4, 4, 6]
+        },
+        {
+            name: '1차',
+            type: 'spline',
+            lineWidth: 1,
+            data: [8, 7, 10, 8, 9, 9, 9, 7, 10, 18, 17, 16, 19, 20, 21, 20, 16, 13, 7, 5, 5, 6, 5, 6]
+        },
+        {
+            name: '2차',
+            type: 'spline',
+            lineWidth: 1,
+            data: [6, 8, 11, 10, 9, 9, 8, 6, 9, 15, 16, 18, 19, 20, 19, 15, 15, 14, 8, 5, 6, 5, 5, 6]
+        },
+        {
+            name: 'Temperature error',
+            type: 'errorbar',
+            data: [
+                [0, 3],
+                [3, 8],
+                [8, 15],
+                [9, 14],
+                [18, 25],
+                [15, 20],
+                [17, 22],
+                [12, 16],
+                [9, 14],
+                [5, 9],
+                [0, 3],
+                [0, 3],
+                [0, 4],
+                [0, 4],
+                [0, 4],
+                [10, 15],
+                [9, 13],
+                [8, 12],
+                [7, 11],
+                [4, 8],
+                [4, 8],
+                [5, 9],
+                [4, 8],
+                [4, 9]
+            ]
+        }
+    ]
+});    
+
+//오차 빈도, errFrequency
+const colors = Highcharts.getOptions().colors,
+    categories = ['10%미만', '10%이상'],
+    data = [
+        {
+            y: 2.209,
+            name: "10%미만",
+            drilldown: {
+                name: '6% 이하',
+                categories: ['6% 이하'],
+                data: [44.444]
+            }
+        },
+        {
+            y: 97.791,
+            name: "10%이상",
+            drilldown: {
+                name: '6~8%',
+                categories: ['6~8%'],
+                data: [11.111]
+            }
+        },
+        {
+            drilldown: {
+                name: '8%초과',
+                categories: ['8%초과'],
+                data: [44.444]
+            }
+        }
+    ],
+    
+    browserData = [],
+    versionsData = [],
+    dataLen = data.length;
+
+let drillDataLen,
+    brightness;
+
+
+// Build the data arrays
+for (i = 0; i < dataLen; i += 1) {
+
+    // add browser data
+    browserData.push({
+        name: categories[i],
+        y: data[i].y,
+    });
+
+    // add version data
+    drillDataLen = data[i].drilldown.data.length;
+    for (j = 0; j < drillDataLen; j += 1) {
+        const name = data[i].drilldown.categories[j];
+        brightness = 0.2 - (j / drillDataLen) / 5;
+        versionsData.push({
+            name,
+            y: data[i].drilldown.data[j],
+            //바깥 원 색상
+            color : color[i + 2],
+            custom: {
+                version: name.split(' ')[1] || name.split(' ')[0]
+            }
+        });
+    }
+}
+
+// Create the chart
+Highcharts.chart('errFrequency', {
+    colors: color,
+    exporting: {    //차트 내 메뉴 false 삭제 / true 유지
+        enabled: false
+    },
+    credits: {      //highchart 워터마크 숨김처리
+        enabled: false
+    },
+    chart: {
+        type: 'pie'
+    },
+    title: {
+        text: ''
+    },
+    plotOptions: {
+        pie: {
+            shadow: false,
+            center: ['50%', '50%']
+        }
+    },
+    tooltip: {
+        valueSuffix: '%'
+    },
+    series: [{
+        //안쪽 원
+        name: '',
+        data: browserData,
+        size: '55%',
+        dataLabels: {
+            color: '#ffffff',
+            distance: '-55%'
+        },
+        id: '이용율'
+    }, {
+        //바깥 원
+        name: '',
+        data: versionsData,
+        size: '100%',
+        innerSize: '60%',
+        dataLabels: {
+            color: '#ffffff',
+            distance: '-20%'
+        },
+        id: '오차율'
+    }]
+});
+</script>    
+</body>
+</html>

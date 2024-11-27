@@ -1,0 +1,698 @@
+$bodyColor: #eaf0f4;
+
+$text_01: #38475a;
+$text_02: #677381;
+$text_03: #202d3d;
+$text_04: #a5abb2;
+
+$point: #3894f4;
+
+$fontSize_01: 2rem;
+$fontSize_02: 1.6rem;
+$fontSize_03: 1.4rem;
+
+* { padding: 0; margin: 0; font-family: "Noto Sans KR"; box-sizing: border-box; word-break: keep-all;}
+ul, li { list-style: none;}
+a { display: inline-block; text-decoration: none;}
+img, svg { vertical-align: top;}
+span { display: inline-block;}
+
+html { min-width: 1440px; height: 100%; font-size: 10px;}
+body { position: relative; height: 100%; display: flex; flex-wrap: wrap; font-size: $fontSize_02; color: $text_03; background: $bodyColor;}
+
+.hidden { position: absolute; left: -9999; font-size: 0;}
+
+
+/* 제목 */
+h2 { font-size: $fontSize_01; color: $text_01;}
+h3 { font-size: $fontSize_02; color: $text_01;}
+h4 { font-size: $fontSize_03; color: $text_02;}
+
+
+/* 입력 폼 */
+select, input:not([type=button]) {
+    padding: 0.8rem 1.2rem; margin-right: 0.5rem; border: 1px solid $text_04; font-size: $fontSize_03; color: $text_03; outline: none;
+
+    &:focus { outline: none;}
+    &:last-child { margin-right: 0;}
+}
+
+select { min-width: 13rem;}
+
+input:not([type=button]) { min-width: 15rem;}
+
+/* 검색 */
+.search { 
+    position: relative; margin: {top: 2rem; left: 2rem; right: 2rem; bottom: 2rem;}; text-align: right;
+    
+    .buttonIcon { 
+        position: absolute; top: 0; right: 0; padding: 0.4rem 0.8rem  0.2rem; border: 1px solid $text_04; border-left: none; background: #fff; cursor: pointer;
+
+        .icon { width: 1.8rem; height: 1.5rem; vertical-align: initial; filter: invert(45%) sepia(35%) saturate(202%) hue-rotate(172deg) brightness(89%) contrast(82%);}
+    }
+
+    .input { min-width: 15rem; padding-right: 3.5rem;}
+}
+
+
+/* 입력 폼 */
+.formList { 
+    text-align: left;
+
+    &::after { content: ""; display: block; clear: both;}
+
+    li { 
+        margin-bottom: 1.2rem;
+
+        &:last-child { margin-bottom: 0;}
+    } 
+
+    input { width: 100%;}
+}
+
+
+/* 체크 박스 */
+.checkBox { 
+    font-weight: 500; font-size: $fontSize_03; color: $text_04; cursor: pointer;
+
+    span { width: 1.5rem; height: 1.5rem; margin-top: -0.3rem; margin-right: 0.3rem; vertical-align: middle; border: 1px solid $text_04;}
+
+    input { display: none;}
+}
+
+.checkBox.action {
+    color: $point;
+
+    span { 
+        background: url(../images/check.svg) no-repeat center / 70%;
+        filter: invert(56%) sepia(53%) saturate(5050%) hue-rotate(193deg) brightness(102%) contrast(91%);
+    }
+    
+    
+}
+
+
+/* 테이블 */
+table {
+    width: calc(100% - 4rem); margin: 2rem; border-spacing: 0; border-collapse: collapse; text-align: center;
+
+    tbody { 
+        display: block; overflow-x: hidden; overflow-y: auto; box-sizing: border-box; 
+        scrollbar-arrow-color: none; scrollbar-Track-Color: none; scrollbar-Face-Color: #aaccec; scrollbar-Shadow-Color: none; scrollbar-color: #aaccec;
+
+        &::-webkit-scrollbar { width: 6px; height: 6px;}
+        &::-webkit-scrollbar-thumb { background-color: #a5abb2; border-radius: 10px;}
+        &::-webkit-scrollbar-track { background-color: none; border-radius: 10px;}
+        &::-webkit-scrollbar-button { width: 0; height: 0; }
+    }
+    
+
+    tr { display: table; width: 100%; table-layout: fixed;}
+    
+    th { padding-bottom: 1rem; font-size: $fontSize_03; color: $text_02; border-bottom: 1px solid $point; color: $point;}
+    
+    tbody {
+        th { border-color: #e6ebee; border-right: 1px solid $point; word-break: break-word;}
+        td { padding: 1.2rem 0.2rem; font-size: $fontSize_02; color: $text_03; border-bottom: 1px solid #e6ebee; word-break: break-word;}
+    } 
+
+    .noData { padding: 0; height: 30vh; border-bottom: 1px solid #e6ebee;}
+}
+
+
+/* 가로 스크롤 테이블 */
+.tableScroll_X { 
+    max-width: 122rem; margin: 2rem; overflow-x: auto;
+    scrollbar-arrow-color: none; scrollbar-Track-Color: none; scrollbar-Face-Color: #aaccec; scrollbar-Shadow-Color: none; scrollbar-color: #aaccec;
+
+    &::-webkit-scrollbar { width: 6px; height: 6px;}
+    &::-webkit-scrollbar-thumb { background-color: #a5abb2; border-radius: 10px;}
+    &::-webkit-scrollbar-track { background-color: none; border-radius: 10px;}
+    &::-webkit-scrollbar-button { width: 0; height: 0;}
+
+    @media screen and (max-width: 1520px) {
+        max-width: 116rem;
+    }
+
+    table { 
+        width: auto; margin: 0; white-space: nowrap;
+
+        thead, tbody { 
+            display: table-row-group;
+            
+            tr { display: table-row;}
+            th { padding: 0 1rem 1rem;}
+            td { padding: 1.2rem 1rem;}
+        }
+    }
+}
+
+
+/* 라벨 */
+.label { padding: 0.3rem 1.3rem 0.5rem; font-size: 1.3rem; border-radius: 30px;}
+
+    .labelRed { background: #ed4f4f; color: #fff;}
+    .labelGreen { background: #58d53f; color: #fff;}
+
+
+/* 버튼*/
+.buttonZone { margin: 2rem 0; padding: 0 2rem; text-align: right;}
+    .button { 
+        margin-left: 0.8rem; padding: 1.2rem 1.8rem; font-size: $fontSize_03; font-weight: 500; border-radius: 3px; border: none; background: none; outline: none; cursor: pointer;
+
+        &:first-child { margin-left: 0;}
+    }
+
+        .softBlue { background: #cbe2fb; color: #0978eb;}
+
+        .buttonBlue { background: #3894f4; color: #fff;}
+
+
+/* 왼쪽 메뉴 */
+$iconColor: invert(48%) sepia(24%) saturate(279%) hue-rotate(172deg) brightness(86%) contrast(86%);
+$iconPoint: invert(51%) sepia(16%) saturate(6199%) hue-rotate(190deg) brightness(100%) contrast(92%);
+
+.leftMenu { 
+    flex: 0 0 12%; background: #162234; color: $text_02; z-index: 1;
+
+    .menuIcon {
+        height: 5rem; padding: { top: 0.9rem; left: 2rem; right: 2rem;}; text-align: right;
+
+        img { width: 3rem; height: 3rem; cursor: pointer; filter: invert(95%) sepia(2%) saturate(1227%) hue-rotate(181deg) brightness(74%) contrast(82%);}
+    }
+
+    // 메인 메뉴
+    .mainMenu {
+        font-weight: bold;
+        
+        > li {
+            padding: { top: 2rem; left: 2rem; right: 2rem; bottom: 1rem}; margin-bottom: 0.2rem; font-size: $fontSize_02; cursor: pointer;
+
+            &.action { 
+                color: $point; background: #0c1625;
+            
+                img { filter: $iconPoint;}
+
+                ul { display: block;}
+            }
+
+            &::before { content: ""; float: right; display: block; width: 2rem; height: 2rem; transform: rotate(90deg); background: { image: url(../images/menu_arrow.svg); repeat: no-repeat; size: 60%; position: center top;}; filter: $iconColor;}
+
+            &.action::before { transform: rotate(-90deg); background-position: center bottom; filter: $iconPoint;}
+
+            > img { width: 1.6rem; height: 1.6rem; margin: { top: -0.3rem; right: 0.5rem; }; vertical-align: middle; filter: $iconColor;}
+            
+            // 서브 메뉴
+            ul {
+                display: none; margin: { top: 1rem; };
+
+                li {
+                    padding: { top: 1rem; left: 2.5rem; bottom: 1rem}; font-size: 1.3rem;  color: $text_02;
+
+                    &.action { color: $point;}
+
+                    //퍼블리싱 용 효과
+                    a { color: $text_02;}
+                    &.action a { color: $point;}
+                }
+            }
+        }
+    }
+}
+
+
+/* 로그인 */
+.login { 
+    position: absolute; top: 50%; left: 50%; width: 60%; height: 70%; text-align: center; transform: translate(-50%, -50%);
+    display: flex; justify-content: center; align-items: center;
+    
+    h2 { margin-bottom: 3rem;}
+
+    .box_01 { 
+        flex: 1 0 60%; height: 100%; overflow: hidden; background: #000;
+
+        .loginImg { width: 100%; height: 100%; opacity: 0.8;}
+    }
+
+    .box_02 { 
+        flex: 1 0 40%; padding: 3rem;
+    }
+
+    .userInfo {
+        margin-top: 3rem; font-size: $fontSize_03;
+
+        li { 
+            margin-top: 1rem;
+
+            a { 
+                color: $text_02;
+
+                &:hover { text-decoration: underline;}
+            }
+        }
+    }
+    
+}
+
+
+
+/* 본문 */
+.content { flex: 0 1 88%; z-index: 0;}
+
+header {
+    height: 5rem; padding: { top: 1rem; left: 3rem; right: 3rem; bottom: 1rem;}; background: #ffffff; box-shadow: 0 2px 10px #d7dce0;
+
+    &::after { content: ""; display: block; clear: both;}
+
+    h1 { 
+        float: left; font-size: 1.8rem; color: $text_01;
+
+        img { width: 5.2rem; height: 2.8rem; margin-right: 0.5rem;}
+
+        a { color: $text_01;}
+    }
+
+    .userMenu {
+        float: right;
+
+        li { float: left; margin-left: 1rem; font: { size: $fontSize_02; weight: bold} color: $text_02;}
+    }
+}
+
+.contentStyle { 
+    padding: 3rem;
+
+    h2 { margin-bottom: 3rem;}
+}
+
+    /* 공용 */
+    .boxStyle {
+        border-radius: 5px; border: 1px solid #d5dde2; background: #fff; box-shadow: 0 0 8px #d5dadd; overflow: hidden;
+
+        h3:not(.hidden) { padding: 1.2rem 2rem; background: #f8fcff; border-bottom: 1px solid #e6ebee;}
+    }
+
+    .selectZone { position: absolute; top: 2rem; z-index: 10;}
+
+    
+    .container_01, .container_02, .container_03 {
+        display: flex; flex-wrap: wrap; justify-content: space-between; align-content: stretch; margin-bottom: 2.2rem;
+        
+        &:last-child { margin-bottom: 0;}
+
+        section {
+            border-radius: 5px; border: 1px solid #d5dde2; background: #fff; box-shadow: 0 0 8px #d5dadd; overflow: hidden;
+
+            h3:not(.hidden) { padding: 1.2rem 2rem; background: #f8fcff; border-bottom: 1px solid #e6ebee;}
+        }
+    }
+
+    .container_01.statistics {
+        section {
+            flex: 1 0 20%; position: relative; margin-right: 2rem; padding: 2rem;
+            
+            &:nth-child(1) { border-left: { width: 5px; style: solid; color: #2777c9};}
+            &:nth-child(2) { border-left: { width: 5px; style: solid; color: #07a5b0};}
+            &:nth-child(3) { border-left: { width: 5px; style: solid; color: #cd71e4};}
+            &:nth-child(4) { border-left: { width: 5px; style: solid; color: #f09400}; margin-right: 0;}
+
+            h5 { margin-bottom: -0.2rem; font-size: $fontSize_03; color: $text_02;}
+
+            p { 
+                font: { size: 2.4rem; weight: bold;}; color: $text_03;
+    
+                span { margin-left: 0.5rem; font: { size: $fontSize_02; weight: normal;}; color: $text_04;}
+            }
+
+            img { position: absolute; top: 28%; right: 2rem; width: 4rem; height: 4rem; filter: invert(97%) sepia(1%) saturate(5413%) hue-rotate(172deg) brightness(96%) contrast(100%);}
+        }
+        
+    }
+
+    .container_02 {
+        section {
+            margin-right: 2rem;
+
+            &:last-child { margin-right: 0;}
+        }
+    }
+
+    .container_03 {
+        section {
+            margin-right: 2rem;
+
+            &:last-child { margin-right: 0;}
+
+            .chartArea { max-width: 795px;}
+        }
+    }
+
+
+    //차트 커스텀
+    .highcharts-root { font-family: "Noto Sans KR" !important; font-size: 1.6rem !important; font-weight: 500 !important;}
+
+    .chartArea { padding: { top: 0.5rem; left: 0.5rem; right: 1rem; bottom: 0rem};}
+
+
+    .totalData {
+        border-top: 1px solid #e6ebee;
+
+        &::after { content: ""; display: block; clear: both;}
+
+        li {
+            float: left; padding: 2rem 0; text-align: center; border-right: 1px solid #e6ebee;
+
+            &:last-child { border-right: none;}
+
+            h5 { margin-bottom: -0.4rem; font-size: $fontSize_02; font-weight: 500; color: $text_02;}
+
+            p { 
+                font: { size: 2.4rem; weight: bold;}; color: $text_03;
+    
+                span { margin-left: 0.3rem; font: { size: $fontSize_02; weight: normal;}; color: $text_04;}
+            }
+        }
+    }
+
+
+    //차트 범례(커스텀)
+    .chackRemarks {
+        padding: 0 2rem;
+
+        li {
+            margin-bottom: 1rem; font-size: $fontSize_03; font-weight: 500;
+
+            &::before { content: ""; display: inline-block; width: 9px; height: 9px; margin-right: 0.5rem; border-radius: 50%;}
+            
+            &:nth-child(1) { color: #3894f4;}
+            &:nth-child(1)::before { background: #3894f4;}
+
+            &:nth-child(2) { color: #05c0e2;}
+            &:nth-child(2)::before { background: #05c0e2;}
+
+            &:nth-child(3) { color: #9c60ef;}
+            &:nth-child(3)::before { background: #9c60ef;}
+
+            &::after { content: ""; display: block; clear: both;}
+
+            p { float: right; font-size: $fontSize_02; color: $text_02;}
+        }
+    }
+
+
+    /* 발전 현황 및 예측 정보 */
+    .predictionReport {
+
+        .container_02 {
+            section:nth-child(1) { 
+                flex: 0 1 24%;
+    
+                .chartArea { max-width: 385px; min-height: 350px; padding-top: 2rem;}
+            }
+            section:nth-child(2) { 
+                flex: 1 0;
+    
+                .chartArea { max-width: 1200px;}
+            }
+        }
+
+        .container_03 {
+            section {
+                flex: 1 0 48%;
+    
+                .chartArea { max-width: 795px;}
+            }
+        }
+
+        .totalData li { width: 50%;}
+    }
+
+
+    /* 발전 현황 및 입찰 정보 */
+    .biddingReport {
+
+        .container_02 {
+            section:nth-child(1) { 
+                flex: 0 1 24%;
+    
+                .chartArea { max-width: 385px; min-height: 350px; padding-top: 2rem;}
+            }
+            section:nth-child(2) { 
+                flex: 1 0;
+    
+                .chartArea { max-width: 1200px; min-height: 400px;}
+            }
+        }
+
+        .container_03 {
+            section:nth-child(1) { 
+                flex: 0 1 24%;
+    
+                .chartArea { max-width: 385px; min-height: 300px;}
+
+                > p { margin-bottom: 2rem; font-size: $fontSize_03; color: $text_04; text-align: center;}
+            }
+            section:nth-child(2) { 
+                flex: 1 0;
+    
+                .chartArea { max-width: 1200px; min-height: 346px;}
+            }
+
+            .totalData li { width: calc(100%/3);}
+        }
+    }
+
+
+    /* 예측유형별 발전 정보 */
+    .predictionType {
+        .boxStyle {
+            position: relative; padding: { top: 2.5rem; left: 2rem; right: 2rem; bottom: 0;}; margin-bottom: 3rem;
+            
+            &:last-child { margin-bottom: 0;}
+
+            .chartArea { max-width: 1600px; min-height: 420px;}            
+        }
+    }
+
+
+    /* 지역별 기상/발전 현황 */
+    .regionPresent {
+        height: 94%;
+
+        .container_01 { height: inherit;}
+
+        .box_01 { 
+            flex: 0 1 60%; height: initial;
+
+            section { height: 99%;}
+             
+            .chartArea { height: 100%;}
+        }
+
+        .box_02 { 
+            flex: 0 1 39%; height: initial;
+
+            .totalData li { width: 50%;}
+
+            .regionPresentBorder {
+                height: 83%; margin-top: 2rem;
+
+                tbody { height: 80%;}
+            }
+            
+        }
+
+        /*
+        .box_01 { 
+            float: left; width: 59%; height: 93%;
+
+            .chartArea { max-width: 958px; min-height: 740px; padding: { top: 0rem; left: 2rem; right: 2rem; bottom: 0;};}
+        }
+
+        .box_02 { 
+            float: right; width: 40%; margin-bottom: 2rem;
+
+            .totalData li { width: 50%;}
+        }
+
+        .box_03 { 
+            float: right; width: 40%; height: 78.4%;
+
+            tbody { height: 56rem;}
+        }
+        */
+    }
+
+
+    /* 알람 현황 */
+    .informReport {
+        height: 94%;
+
+        .container_02 {
+            height: 79%;
+
+            section { flex: 1 0 100%;}
+
+            tbody { height: 51rem;}
+        }
+    }
+    
+
+    /* 예측유형별 상세 이력 조회 */
+    .predictionTypeInquiry {
+        .boxStyle {
+            position: relative; padding: { top: 2.5rem; left: 2rem; right: 2rem; bottom: 0;}; margin-bottom: 3rem;
+
+            .chartArea { max-width: 1600px; min-height: 420px;}            
+        }
+
+        .container_02 {
+            max-height: 45rem;
+
+            section { flex: 1 0 100%;}
+
+            tbody { max-height: 30rem;}
+        }
+    }
+
+
+    /* 발전실적 수신 현황 */
+    .resultPresent {
+        height: 94%;
+        
+        .boxStyle { 
+            height: 80%;
+
+            section {
+                height: 90%;
+
+                table {
+                    height: 80%;
+                    
+                    tbody { height: 120%;}
+
+                    th:first-child, td:first-child { width: 6%;}
+                    th:last-child, td:last-child { width: 10%;}                    
+                }
+            }
+        }
+    }
+
+
+    /* 달력 레이아웃 스타일 */
+    .calendarStyle {
+        &::after { content: ""; display: block; clear: both;}
+
+        .box_01 { 
+            float: left; width: 20%; margin-right: 2rem;
+
+            &::after { content: ""; display: block; clear: both;}
+
+            .switch { 
+                margin-bottom: 2rem; font-size: $fontSize_02; font-weight: 500; color: $text_01; text-align: center;
+
+                > li { 
+                    float: left; width: 50%; padding: 0.8rem 0; cursor: pointer;
+
+                    &.action { background: $point; color: #fff;}
+                }
+
+                &::after { content: ""; display: block; clear: both;}
+            }
+
+            .dataList {
+                padding: 2rem;
+
+                li { 
+                    margin-bottom: 1rem; font-size: $fontSize_03; font-weight: 500; color: $text_03;
+
+                    &:last-child { 
+                        margin-bottom: 0;
+
+                        p { padding-bottom: 0;}
+                    }
+
+                    h4 { float: left; width: 49%; margin-right: 1%;}
+
+                    select { width: 50%; padding: 0.6rem 0.8rem;}
+
+                    p { padding-bottom: 0.8rem; text-align: right;}
+
+                    @media screen and (max-width: 1520px) {
+                        h4 { width: 100%; margin-right: 0; margin-bottom: 0.8rem;}
+
+                        select { width: 100%; margin-bottom: 0.5rem;}
+
+                        p { padding: 0.8rem 0;}
+                    }
+                }
+            }
+        }
+
+        .box_02 { 
+            float: right; width: 78%;
+
+            &::after { content: ""; display: block; clear: both;}
+
+            .timeSeries {
+                margin-bottom: 2rem;
+
+                .chartArea { min-height: 42vh;}
+            }
+        }   
+    }
+
+
+    //임시 달력 아이콘
+    .warningIcon { padding-top: 1rem; text-align: right;}
+        .warningIcon img { width: 2.3rem; height: 2.3rem; cursor: help; filter: invert(63%) sepia(5%) saturate(0%) hue-rotate(134deg) brightness(95%) contrast(93%);}
+
+
+    /* 입찰 이력 조회 */
+    .bidInquiry {
+        .calendar { margin-bottom: 2rem;}
+
+        .timeSeries { padding: { top: 0rem; left: 0.5rem; right: 1rem; bottom: 0rem};}
+
+        .errFrequency { 
+            float: left; width: 28%; margin-right: 2rem;
+
+            .chartArea { min-height: 35vh; margin-bottom: -1rem;}
+
+            h5 { margin-bottom: 2rem; color: $text_04; text-align: center;}
+        }
+
+        .timeData {
+            th:first-child, td:first-child { width: 10%;}
+            
+            th:nth-child(5), td:nth-child(5) { width: 16%;}
+            th:nth-child(6), td:nth-child(6) { width: 16%;}
+
+            tbody { max-height: 75vh;}
+        }
+    }
+    
+
+    /* 입찰서 생성 */
+    .bidCreat {
+        section { 
+            margin-bottom: 2rem;
+            
+            &:last-child { margin-bottom: 0;}
+        }
+        
+        .timeSeries { padding: { top: 2rem; left: 0.5rem; right: 1rem; bottom: 0rem};}
+    }
+
+    /* 기상 이력 조회 */
+    .weatheInquiry {
+        section { 
+            margin-bottom: 2rem;
+
+            &:last-child { margin-bottom: 0;}
+        }
+
+        .chartArea { min-height: 40vh;}
+
+        tbody { max-height: 48vh;}
+    }

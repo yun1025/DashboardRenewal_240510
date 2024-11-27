@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>대시보드 리뉴얼</title>
+
+    <link href="css/common.css" rel="stylesheet" type="text/css">
+    <link href="css/style.css" rel="stylesheet" type="text/css">
+
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/highcharts-more.js"></script>
+    <script src="https://code.highcharts.com/modules/data.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+    <script src="https://code.highcharts.com/modules/export-data.js"></script>
+    <script src="https://code.highcharts.com/modules/accessibility.js"></script>
+</head>
+<body>
+    <!-- 왼쪽 메뉴 -->
+    <section class="leftMenu">
+        <h2 class="hidden">왼쪽 메뉴 영역</h2>
+        
+        <p class="menuIcon">
+            <img src="images/menu.svg" alt="메뉴 아이콘">
+        </p>
+        
+        <ul class="mainMenu">
+            <li class="action">
+                <img src="images/computer.svg" alt="대시보드 메뉴 아이콘">
+                대시보드
+
+                <ul class="subMenu">
+                    <li>
+                        <a href="predictionReport.html">발전 현황 및 예측 정보</a>
+                    </li>
+                    <li>
+                        <a href="biddingReport.html">발전 현황 및 입찰 정보</a>
+                    </li>
+                    <li class="action">
+                        <a href="#">예측유형별 발전 정보</a>
+                    </li>
+                    <li>
+                        <a href="regionPresent.html">지역별 기상/발전 현황</a>
+                    </li>
+                    <li>
+                        <a href="informReport.html">알람 현황</a>
+                    </li>
+                </ul>
+            </li>
+            <li class="action">
+                <img src="images/user.svg" alt="사용자 메뉴 아이콘">
+                사용자
+
+                <ul>
+                    <li>
+                        <a href="predictionTypeInquiry.html">예측유형별 상세 이력 조회</a>
+                    </li>
+                    <li>
+                        <a href="bidInquiry.html">입찰 이력 조회</a>
+                    </li>
+                    <li>
+                        <a href="bidCreat.html">입찰서 생성</a>
+                    </li>
+                    <li>
+                        <a href="weatheInquiry.html">기상 이력 조회</a>
+                    </li>
+                    <li>
+                        <a href="resultPresent.html">발전실적 수신 현황</a>
+                    </li>         
+                </ul>
+            </li>
+            <li class="action">
+                <img src="images/gear.svg" alt="관리자 메뉴 아이콘">
+                관리자
+
+                <ul>
+                    <li>
+                        <a href="login.html">로그인</a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </section>
+
+    <!-- 본문 -->
+    <article class="content">
+        <h2 class="hidden">본문 내용 영역</h2>
+
+        <header>
+            <h1>
+                <a href="#">
+                    <!--로고 영역-->
+
+                    대시보드 리뉴얼
+                </a>
+            </h1>
+
+            <ul class="userMenu">
+                <li>2024.05.10. 14:00 00</li>
+            </ul>
+        </header>
+
+        <!-- 예측유형별 발전 정보 -->
+        <section class="predictionType contentStyle">
+            <h2>예측유형별 발전 정보</h2>
+
+            <section class="boxStyle">
+                <h2 class="hidden">통합/태양광/풍력 그래프</h2>
+
+                <div class="selectZone">
+                    <select>
+                        <option value="">통합</option>
+                        <option value="">입찰</option>
+                    </select>
+
+                    <select>
+                        <option value="">통합</option>
+                        <option value="">태양광</option>
+                        <option value="">풍력</option>
+                    </select>
+
+                    <select>
+                        <option value="">단기</option>
+                        <option value="">중기</option>
+                        <option value="" selected>장기</option>
+                    </select>
+                </div>
+
+                <div id="predictionType_01" class="chartArea"></div>
+            </section>
+
+            <section class="boxStyle">
+                <h2 class="hidden">특정 지역 그래프</h2>
+                
+                <div class="selectZone">
+                    <select>
+                        <option value="">통합</option>
+                        <option value="">입찰</option>
+                    </select>
+    
+                    <select>
+                        <option value="">제주삼달풍력(JSD_STA_JEJU_01)</option>
+                        <option value="">제주태양광모의용(R001)</option>
+                        <option value="">탐라해상풍력(V002)</option>
+                        <option value="">가시리풍력#1(V003)</option>
+                        <option value="">가시리풍력(V004)</option>
+                        <option value="">울진현종산풍력(V006)</option>
+                    </select>
+    
+                    <select>
+                        <option value="">단기</option>
+                        <option value="">중기</option>
+                        <option value="" selected>장기</option>
+                    </select>        
+                </div>
+                
+                <div id="predictionType_02" class="chartArea"></div>
+            </section>           
+        </section>
+    </article>
+
+<script>
+//차트 색상
+const colors = ['#3894f4', '#05c0e2', '#9c60ef', '#5c56d5'];
+
+
+//통합/태양광/풍력 그래프
+Highcharts.chart('predictionType_01', {
+    colors: colors,
+    exporting: {    //차트 내 메뉴 false 삭제 / true 유지
+        enabled: false
+    },
+    credits: {      //highchart 워터마크 숨김처리
+        enabled: false
+    },
+    chart: {
+        type: 'spline'
+    },
+
+    title: {
+        text: ''
+    },
+        legend: {
+            align: 'right',
+            x: 5,
+            verticalAlign: 'top',
+            y: 0,
+            floating: false,
+            enabled: true
+        },
+    
+    data: {
+        csv: ';실적;예측' +
+             '\n18시;60;' +
+             '\n05/13;70;' +
+             '\n6시;80;' +
+             '\n12시;140;' +
+             '\n18시;210;' +
+             '\n05/14;150;' +
+             '\n6시;80;' +
+             '\n12시;140;' +
+             '\n18시;210;' +
+             '\n05/15;300;' +
+             '\n6시;80;' +
+             '\n12시;140;' +
+             '\n18시;210;' +
+             '\n05/16;250;' +
+             '\n6시;80;' +
+             '\n12시;140;' +
+             '\n18시;210;' +
+             '\n05/17;300;' +
+             '\n6시;80;' +
+             '\n12시;140;' +
+             '\n18시;210;' +
+             '\n05/18;300;' +
+             '\n6시;80;' +
+             '\n12시;140;' +
+             '\n18시;210;' +
+             '\n05/19;280;' +
+             '\n6시;80;' +
+             '\n12시;140;' +
+             '\n18시;210;'
+    },
+    yAxis: [{
+        labels: {
+            style: {
+                color: '#a5abb2'
+            }
+        },
+        title: {
+            text: ''
+        },
+        plotLines: [{
+            color: 'black',
+            width: 2,
+            value: 320,
+            animation: {
+                duration: 1000,
+                defer: 4000
+            },
+            label: {
+                text: '설비용량(330.661MW)',
+                align: 'right',
+                x: 0
+            }
+        }]
+    }],
+    plotOptions: {
+        series: {
+            animation: {
+                duration: 1000
+            },
+            marker: {
+                enabled: false
+            },
+            lineWidth: 2
+        }
+    }
+});
+
+//특정 지역 그래프
+Highcharts.chart('predictionType_02', {
+    colors: colors,
+    exporting: {    //차트 내 메뉴 false 삭제 / true 유지
+        enabled: false
+    },
+    credits: {      //highchart 워터마크 숨김처리
+        enabled: false
+    },
+    chart: {
+        type: 'spline'
+    },
+
+    title: {
+        text: ''
+    },
+        legend: {
+            align: 'right',
+            x: 5,
+            verticalAlign: 'top',
+            y: 0,
+            floating: false,
+            enabled: true
+        },
+    
+    data: {
+        csv: ';실적;예측' +
+             '\n18시;6;' +
+             '\n05/13;7;' +
+             '\n6시;8;' +
+             '\n12시;14;' +
+             '\n18시;21;' +
+             '\n05/14;15;' +
+             '\n6시;8;' +
+             '\n12시;14;' +
+             '\n18시;21;' +
+             '\n05/15;3;' +
+             '\n6시;8;' +
+             '\n12시;14;' +
+             '\n18시;21;' +
+             '\n05/16;25;' +
+             '\n6시;8;' +
+             '\n12시;14;' +
+             '\n18시;21;' +
+             '\n05/17;30;' +
+             '\n6시;8;' +
+             '\n12시;14;' +
+             '\n18시;21;' +
+             '\n05/18;30;' +
+             '\n6시;8;' +
+             '\n12시;14;' +
+             '\n18시;21;' +
+             '\n05/19;28;' +
+             '\n6시;8;' +
+             '\n12시;14;' +
+             '\n18시;21;'
+    },
+    yAxis: [{
+        labels: {
+            style: {
+                color: '#a5abb2'
+            }
+        },
+        title: {
+            text: ''
+        },
+        plotLines: [{
+            color: 'black',
+            width: 2,
+            value: 32,
+            animation: {
+                duration: 1000,
+                defer: 4000
+            },
+            label: {
+                text: '설비용량(33.000MW)',
+                align: 'right',
+                x: 0
+            }
+        }]
+    }],
+    plotOptions: {
+        series: {
+            animation: {
+                duration: 1000
+            },
+            marker: {
+                enabled: false
+            },
+            lineWidth: 2
+        }
+    }
+});
+</script>
+</body>
+</html>

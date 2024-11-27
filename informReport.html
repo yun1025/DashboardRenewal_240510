@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>대시보드 리뉴얼</title>
+
+    <link href="css/common.css" rel="stylesheet" type="text/css">
+    <link href="css/style.css" rel="stylesheet" type="text/css">
+
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+    <script src="https://code.highcharts.com/modules/export-data.js"></script>
+    <script src="https://code.highcharts.com/modules/accessibility.js"></script>
+</head>
+<body>
+    <!-- 왼쪽 메뉴 -->
+    <section class="leftMenu">
+        <h2 class="hidden">왼쪽 메뉴 영역</h2>
+        
+        <p class="menuIcon">
+            <img src="images/menu.svg" alt="메뉴 아이콘">
+        </p>
+        
+        <ul class="mainMenu">
+            <li class="action">
+                <img src="images/computer.svg" alt="대시보드 메뉴 아이콘">
+                대시보드
+
+                <ul class="subMenu">
+                    <li>
+                        <a href="predictionReport.html">발전 현황 및 예측 정보</a>
+                    </li>
+                    <li>
+                        <a href="biddingReport.html">발전 현황 및 입찰 정보</a>
+                    </li>
+                    <li>
+                        <a href="predictionType.html">예측유형별 발전 정보</a>
+                    </li>
+                    <li>
+                        <a href="regionPresent.html">지역별 기상/발전 현황</a>
+                    </li>
+                    <li class="action">
+                        <a href="#">알람 현황</a>
+                    </li>
+                </ul>
+            </li>
+            <li class="action">
+                <img src="images/user.svg" alt="사용자 메뉴 아이콘">
+                사용자
+
+                <ul>
+                    <li>
+                        <a href="predictionTypeInquiry.html">예측유형별 상세 이력 조회</a>
+                    </li>
+                    <li>
+                        <a href="bidInquiry.html">입찰 이력 조회</a>
+                    </li>
+                    <li>
+                        <a href="bidCreat.html">입찰서 생성</a>
+                    </li>
+                    <li>
+                        <a href="weatheInquiry.html">기상 이력 조회</a>
+                    </li>
+                    <li>
+                        <a href="resultPresent.html">발전실적 수신 현황</a>
+                    </li>   
+                </ul>
+            </li>
+            <li class="action">
+                <img src="images/gear.svg" alt="관리자 메뉴 아이콘">
+                관리자
+
+                <ul>
+                    <li>
+                        <a href="login.html">로그인</a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </section>
+
+    <!-- 본문 -->
+    <article class="content">
+        <h2 class="hidden">본문 내용 영역</h2>
+
+        <header>
+            <h1>
+                <a href="#">
+                    <!--로고 영역-->
+
+                    대시보드 리뉴얼
+                </a>
+            </h1>
+
+            <ul class="userMenu">
+                <li>2024.05.10. 14:00 00</li>
+            </ul>
+        </header>
+
+        <!-- 알람 현황 -->
+        <section class="informReport contentStyle">
+            <h2>알람 현황</h2>
+
+            <div class="container_01 statistics">
+                <section>
+                    <h5>전체 알림</h5>
+                    <p>0</p>
+
+                    <img src="images/icon_05.svg" alt="전체 알림 아이콘">
+                </section>
+
+                <section>
+                    <h5>발전 알림</h5>
+                    <p>0</p>
+
+                    <img src="images/icon_06.svg" alt="발전 알림 아이콘">
+                </section>
+
+                <section>
+                    <h5>기상 알림</h5>
+                    <p>0</p>
+
+                    <img src="images/icon_07.svg" alt="기상 알림 아이콘">
+                </section>
+
+                <section>
+                    <h5>시스템 알림</h5>
+                    <p>0</p>
+
+                    <img src="images/icon_08.svg" alt="시스템 알림 아이콘">
+                </section>
+            </div>
+
+            <div class="container_02">
+                <section>
+                    <h3>전체 발생 알람 현황</h3>
+
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>No</th>
+                                <th>발생 시간</th>
+                                <th>구분</th>
+                                <th>중요도</th>
+                                <th>알람 제목</th>
+                                <th>알람 내용</th>
+                                <th>확인</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!--
+                            <tr>
+                                <td>1</td>
+                                <td>2024-05-17 17:32:00</td>
+                                <td>-</td>
+                                <td>1</td>
+                                <td>-</td>
+                                <td>-</td>
+                                <td></td>
+                            </tr>
+                            -->
+                            <tr>
+                                <td colspan="7" class="noData">알람이 없습니다</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </section>
+            </div>
+        </section>
+    </article>
+
+<script>
+
+</script>
+</body>
+</html>

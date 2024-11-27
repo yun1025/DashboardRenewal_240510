@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>대시보드 리뉴얼</title>
+
+    <link href="css/common.css" rel="stylesheet" type="text/css">
+    <link href="css/style.css" rel="stylesheet" type="text/css">
+
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/highcharts-more.js"></script>
+    <script src="https://code.highcharts.com/modules/data.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+    <script src="https://code.highcharts.com/modules/export-data.js"></script>
+    <script src="https://code.highcharts.com/modules/accessibility.js"></script>
+
+    <!-- 달력 플러그인 -->
+    <script src="https://cdn.jsdelivr.net/npm/color-calendar/dist/bundle.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/color-calendar@1.0.5/dist/css/theme-glass.css">
+</head>
+<body>
+    <!-- 왼쪽 메뉴 -->
+    <section class="leftMenu">
+        <h2 class="hidden">왼쪽 메뉴 영역</h2>
+        
+        <p class="menuIcon">
+            <img src="images/menu.svg" alt="메뉴 아이콘">
+        </p>
+        
+        <ul class="mainMenu">
+            <li class="action">
+                <img src="images/computer.svg" alt="대시보드 메뉴 아이콘">
+                대시보드
+
+                <ul class="subMenu">
+                    <li>
+                        <a href="predictionReport.html">발전 현황 및 예측 정보</a>
+                    </li>
+                    <li>
+                        <a href="biddingReport.html">발전 현황 및 입찰 정보</a>
+                    </li>
+                    <li>
+                        <a href="predictionType.html">예측유형별 발전 정보</a>
+                    </li>
+                    <li>
+                        <a href="regionPresent.html">지역별 기상/발전 현황</a>
+                    </li>
+                    <li>
+                        <a href="informReport.html">알람 현황</a>
+                    </li>
+                </ul>
+            </li>
+            <li class="action">
+                <img src="images/user.svg" alt="사용자 메뉴 아이콘">
+                사용자
+
+                <ul>
+                    <li>
+                        <a href="predictionTypeInquiry.html">예측유형별 상세 이력 조회</a>
+                    </li>
+                    <li>
+                        <a href="bidInquiry.html">입찰 이력 조회</a>
+                    </li>
+                    <li class="action">
+                        <a href="#">입찰서 생성</a>
+                    </li>
+                    <li>
+                        <a href="weatheInquiry.html">기상 이력 조회</a>
+                    </li>
+                    <li>
+                        <a href="resultPresent.html">발전실적 수신 현황</a>
+                    </li>
+                </ul>
+            </li>
+            <li class="action">
+                <img src="images/gear.svg" alt="관리자 메뉴 아이콘">
+                관리자
+
+                <ul>
+                    <li>
+                        <a href="login.html">로그인</a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </section>
+
+    <!-- 본문 -->
+    <article class="content">
+        <h2 class="hidden">본문 내용 영역</h2>
+
+        <header>
+            <h1>
+                <a href="#">
+                    <!--로고 영역-->
+
+                    대시보드 리뉴얼
+                </a>
+            </h1>
+
+            <ul class="userMenu">
+                <li>2024.05.10. 14:00 00</li>
+            </ul>
+        </header>
+
+        <!-- 입찰서 생성 -->
+        <section class="bidCreat calendarStyle contentStyle">
+            <h2>입찰서 생성</h2>
+
+            <div class="box_01">
+                <section class="calendar">
+                    <h3 class="hidden">예측 일자 선택(달력) 영역</h3>
+
+                    <div id="calendar"></div>
+
+                    <p class="warningIcon">
+                        <img src="images/warning.svg" alt="아이콘에 마우스를 올려주세요" title="화면 구성을 위한 임시 달력입니다 추후 개발용 달력으로 변경하여 사용해주세요">
+                    </p>
+                </section>
+
+                <section class="boxStyle">
+                    <h2 class="hidden">입력 정보 영역</h2>  
+
+                    <ul class="dataList">
+                        <li>
+                            <h4>자원 형태</h4>
+
+                            <select>
+                                <option value="">개별 자원</option>
+                                <option value="">집합 자원</option>
+                            </select>
+                        </li>
+                        <li>
+                            <h4>자원 명칭</h4>
+
+                            <select>
+                                <option value="">제주삼달풍력(JSD_STA_JEJU_01)</option>
+                                <option value="">제주태양광모의용(R001)</option>
+                                <option value="">탐라해상풍력(V002)</option>
+                                <option value="">가시리풍력#1(V003)</option>
+                                <option value="">가시리풍력(V004)</option>
+                                <option value="">울진현종산풍력(V006)</option>
+                            </select>
+                        </li>
+                        <li>
+                            <h4>전력거래 개시일</h4>
+
+                            <p>-</p>
+                        </li>
+                        <li>
+                            <h4>소규모 자원 개수</h4>
+
+                            <p>1개</p>
+                        </li>
+                        <li>
+                            <h4>설비 용량</h4>
+
+                            <p>33.000 MW</p>
+                        </li>
+                    </ul>
+                </section>
+            </div>
+
+            <div class="box_02">
+                <!-- <h2>2024년 5월 28일</h2> -->
+                
+                <section class="timeSeries boxStyle">
+                    <h3 class="hidden">그래프 영역</h3>
+
+                    <div id="timeSeries" class="chartArea"></div>
+                </section>
+
+                <section class="generalBid boxStyle">
+                    <h3>종합 입찰 정보 (단위: MWh)</h3>
+                    
+                    <div class="tableScroll_X">
+                        <!-- 원본 테이블 -->
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>집합자원명</th>
+                                    <script>
+                                        for(let i = 1; i <= 24; i++) {
+                                            let th = '<th>'+ i +'시</th>';
+
+                                            document.write(th);
+                                        }
+                                    </script>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>제주삼달풍력</td>
+                                    <script>
+                                        for(let i = 1; i <= 24; i++) {
+                                            let td = '<td>'+ i +'.636</td>';
+
+                                            document.write(td);
+                                        }
+                                    </script>
+                                </tr>
+                                <tr>
+                                    <td>이용률(%)</td>
+                                    <script>
+                                        for(let i = 1; i <= 24; i++) {
+                                            let td = '<td>'+ i +'.169</td>';
+
+                                            document.write(td);
+                                        }
+                                    </script>
+                                </tr>
+                            </tbody>
+                        </table>
+                        
+                        <!-- 바꿔본 테이블
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>집합자원명/시간</th>
+                                    <th>제주삼달풍력</th>
+                                    <th>이용률(%)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <script>
+                                    for(let i = 1; i <= 24; i++) {
+                                        let td = '' +
+                                                '<tr>' + 
+                                                    '<th>'+ i +'시</th>' +
+                                                    '<td>'+ i +'.636</td>' +
+                                                    '<td>'+ i +'.4</td>' +
+                                                '</tr>';
+
+                                        document.write(td);
+                                    }
+                                </script>
+                            </tbody>
+                        </table>
+                         -->
+                    </div>
+
+                    <div class="buttonZone">
+                        <input type="button" value="CSV 다운로드" class="button buttonBlue">
+                    </div>
+                </section>
+
+                <section class="smallScaleBid boxStyle">
+                    <h3>소규모 입찰 정보 (주요자원:  1개, 보조자원:  0개), 단위: kWh</h3>
+
+                    <div class="tableScroll_X">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>전력거래발전기아이디</th>
+                                    <th>전력거래발전기명</th>
+                                    <th>소규모발전기아이디</th>
+                                    <th>정산여부</th>
+                                    <th>발전원</th>
+                                    <th>설비용량</th>
+                                    <th>ESS발전타입</th>
+                                    <th>ESS발전타입명</th>
+                                    <script>
+                                        for(let i = 1; i <= 24; i++) {
+                                            let th = '<th>'+ i +'</th>';
+
+                                            document.write(th);
+                                        }
+                                    </script>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>9499</td>
+                                    <td>제주삼달풍력발전기</td>
+                                    <td>9499</td>
+                                    <td>Y</td>
+                                    <td>풍력</td>
+                                    <td>33,000.000</td>
+                                    <td>0</td>
+                                    <td>해당없음</td>
+                                    <script>
+                                        for(let i = 1; i <= 24; i++) {
+                                            let td = '<td>'+ i +',635.743</td>';
+
+                                            document.write(td);
+                                        }
+                                    </script>
+                                </tr>
+                            </tbody>
+                        </table>                        
+                    </div>
+
+                    <div class="buttonZone">
+                        <input type="button" value="XLSX 다운로드" class="button softBlue">
+
+                        <input type="button" value="CSV 다운로드" class="button buttonBlue">
+                    </div>
+                </section>
+            </div>
+        </section>
+    </article>
+
+<script>
+/* 달력 플러그 인 */
+let calA = new Calendar({
+  id: "#calendar",
+  theme: "glass",
+  weekdayType: "short",
+  monthDisplayType: "long",
+  primaryColor: "#3894f4",
+  //headerColor: "#38475a",
+  headerBackgroundColor: "#38475a"
+});
+
+
+//차트 색상
+const color = ['#3894f4', '#05c0e2', '#9c60ef', '#474ed5', '#5d84f3'];
+
+//시게열, timeSeries
+Highcharts.chart('timeSeries', {
+    colors: color,
+    exporting: {    //차트 내 메뉴 false 삭제 / true 유지
+        enabled: false
+    },
+    credits: {      //highchart 워터마크 숨김처리
+        enabled: false
+    },
+    chart: {
+        zoomType: 'xy'
+    },
+    title: {
+        text: ''
+    },
+    xAxis: [
+        {
+            categories: ['1시','2시','3시','4시','5시','6시','7시','8시','9시','10시','11시','12시','13시','14시','15시','16시','17시','18시','19시','20시','21시','22시','23시','24시']
+        }
+    ],
+    yAxis: [
+        {
+            // Primary yAxis
+            labels: {
+                style: {
+                    color: '#a5abb2'
+                }
+            },
+            title: {
+                text: ''
+            },
+            plotLines: [{
+                color: 'black',
+                width: 2,
+                value: 23,
+                animation: {
+                    duration: 1000,
+                    defer: 4000
+                },
+                label: {
+                    text: '설비용량(33.000MW)',
+                    align: 'right',
+                    x: 0
+                }
+            }]
+        },
+        {
+            // Secondary yAxis
+            title: {
+                text: '',
+                style: {
+                    color: '#6b8abc'
+                }
+            },
+            labels: {
+                format: '',
+                style: {
+                    color: '#6b8abc'
+                }
+            },
+            opposite: true
+        }
+    ],
+    legend: false,
+    tooltip: {
+        shared: false
+    },
+    series: [
+        {
+            name: '입찰',
+            type: 'column',
+            data: [3, 5, 12, 10, 21, 18, 20, 16, 10, 5, 0, 0, 3, 4, 5, 12, 10, 9, 8, 5, 6, 4, 4, 6]
+        }
+    ]
+});    
+</script>    
+</body>
+</html>

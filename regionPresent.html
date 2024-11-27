@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>대시보드 리뉴얼</title>
+
+    <link href="css/common.css" rel="stylesheet" type="text/css">
+    <link href="css/style.css" rel="stylesheet" type="text/css">
+
+    <script src="https://code.highcharts.com/maps/highmaps.js"></script>
+    <script src="https://code.highcharts.com/maps/modules/exporting.js"></script>
+</head>
+<body>
+    <!-- 왼쪽 메뉴 -->
+    <section class="leftMenu">
+        <h2 class="hidden">왼쪽 메뉴 영역</h2>
+        
+        <p class="menuIcon">
+            <img src="images/menu.svg" alt="메뉴 아이콘">
+        </p>
+        
+        <ul class="mainMenu">
+            <li class="action">
+                <img src="images/computer.svg" alt="대시보드 메뉴 아이콘">
+                대시보드
+
+                <ul class="subMenu">
+                    <li>
+                        <a href="predictionReport.html">발전 현황 및 예측 정보</a>
+                    </li>
+                    <li>
+                        <a href="biddingReport.html">발전 현황 및 입찰 정보</a>
+                    </li>
+                    <li>
+                        <a href="predictionType.html">예측유형별 발전 정보</a>
+                    </li>
+                    <li class="action">
+                        <a href="regionPresent.html">지역별 기상/발전 현황</a>
+                    </li>
+                    <li>
+                        <a href="informReport.html">알람 현황</a>
+                    </li>
+                </ul>
+            </li>
+            <li class="action">
+                <img src="images/user.svg" alt="사용자 메뉴 아이콘">
+                사용자
+
+                <ul>
+                    <li>
+                        <a href="predictionTypeInquiry.html">예측유형별 상세 이력 조회</a>
+                    </li>
+                    <li>
+                        <a href="bidInquiry.html">입찰 이력 조회</a>
+                    </li>
+                    <li>
+                        <a href="bidCreat.html">입찰서 생성</a>
+                    </li>
+                    <li>
+                        <a href="weatheInquiry.html">기상 이력 조회</a>
+                    </li>
+                    <li>
+                        <a href="resultPresent.html">발전실적 수신 현황</a>
+                    </li>    
+                </ul>
+            </li>
+            <li class="action">
+                <img src="images/gear.svg" alt="관리자 메뉴 아이콘">
+                관리자
+
+                <ul>
+                    <li>
+                        <a href="login.html">로그인</a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </section>
+
+    <!-- 본문 -->
+    <article class="content">
+        <h2 class="hidden">본문 내용 영역</h2>
+
+        <header>
+            <h1>
+                <a href="#">
+                    <!--로고 영역-->
+
+                    대시보드 리뉴얼
+                </a>
+            </h1>
+
+            <ul class="userMenu">
+                <li>2024.05.10. 14:00 00</li>
+            </ul>
+        </header>
+
+        <!-- 지역별 기상/발전 현황 -->
+        <section class="regionPresent contentStyle">
+            <h2>지역별 기상/발전 현황</h2>
+
+            <div class="container_01">            
+                <div class="box_01">
+                    <section class="regionPresentMap">
+                        <h2 class="hidden">지도 영역</h2>
+        
+                        <div id="regionPresentMap" class="chartArea"></div>
+                    </section>
+                </div>
+
+                <div class="box_02">
+                    <section class="totalDataWarp">
+                        <h2 class="hidden">현황 영역</h2>
+        
+                        <ul class="totalData">
+                            <li>
+                                <h5>통합발전 출력</h5>
+                                <p>
+                                    27.427
+                                    <span>MWh</span>
+                                </p>
+                            </li>
+                            <li>
+                                <h5>통합발전 이용률</h5>
+                                <p>
+                                    32.9
+                                    <span>%</span>
+                                </p>
+                            </li>
+                        </ul>
+                    </section>
+
+                    <section class="regionPresentBorder">
+                        <h2 class="hidden">게시판 영역</h2>
+        
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>지역</th>
+                                    <th>기온(℃)</th>
+                                    <th>일사량(W/㎡)</th>
+                                    <th>바람(㎧)</th>
+                                    <th>발전량(MWh)</th>
+                                    <th>설비용량(MW)</th>
+                                    <th>이용률(%)</th>
+                                </tr>
+                            </thead>
+                            
+                            <tbody>
+                                <tr>
+                                    <td>경기도</td>
+                                    <td>18.2</td>
+                                    <td>463.9</td>
+                                    <td>2.8</td>
+                                    <td>-</td>
+                                    <td>-</td>
+                                    <td>-</td>
+                                </tr>
+                                <tr>
+                                    <td>강원도</td>
+                                    <td>18.2</td>
+                                    <td>463.9</td>
+                                    <td>2.8</td>
+                                    <td>-</td>
+                                    <td>-</td>
+                                    <td>-</td>
+                                </tr>
+                                <tr>
+                                    <td>충청북도</td>
+                                    <td>18.2</td>
+                                    <td>463.9</td>
+                                    <td>2.8</td>
+                                    <td>-</td>
+                                    <td>-</td>
+                                    <td>-</td>
+                                </tr>
+                                <tr>
+                                    <td>충청남도</td>
+                                    <td>18.2</td>
+                                    <td>463.9</td>
+                                    <td>2.8</td>
+                                    <td>-</td>
+                                    <td>-</td>
+                                    <td>-</td>
+                                </tr>
+                                <tr>
+                                    <td>전라북도</td>
+                                    <td>18.2</td>
+                                    <td>463.9</td>
+                                    <td>2.8</td>
+                                    <td>-</td>
+                                    <td>-</td>
+                                    <td>-</td>
+                                </tr>
+                                <tr>
+                                    <td>전라남도</td>
+                                    <td>18.2</td>
+                                    <td>463.9</td>
+                                    <td>2.8</td>
+                                    <td>-</td>
+                                    <td>-</td>
+                                    <td>-</td>
+                                </tr>
+                                <tr>
+                                    <td>경상북도</td>
+                                    <td>18.2</td>
+                                    <td>463.9</td>
+                                    <td>2.8</td>
+                                    <td>13.977</td>
+                                    <td>53.400</td>
+                                    <td>26.2</td>
+                                </tr>
+                                <tr>
+                                    <td>경상남도</td>
+                                    <td>18.2</td>
+                                    <td>463.9</td>
+                                    <td>2.8</td>
+                                    <td>-</td>
+                                    <td>-</td>
+                                    <td>-</td>
+                                </tr>
+                                <tr>
+                                    <td>제주특별자치도</td>
+                                    <td>18.2</td>
+                                    <td>463.9</td>
+                                    <td>2.8</td>
+                                    <td>13.977</td>
+                                    <td>53.400</td>
+                                    <td>26.2</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </section>
+                </div>
+            </div>
+            
+            
+            <!--
+            <section class="regionPresentMap boxStyle">
+                <h2 class="hidden">지도 영역</h2>
+
+                <div id="regionPresentMap" class="chartArea"></div>
+            </section>
+
+            <section class="box_02 boxStyle">
+                <h2 class="hidden">현황 영역</h2>
+
+                <ul class="totalData">
+                    <li>
+                        <h5>통합발전 출력</h5>
+                        <p>
+                            27.427
+                            <span>MWh</span>
+                        </p>
+                    </li>
+                    <li>
+                        <h5>통합발전 이용률</h5>
+                        <p>
+                            32.9
+                            <span>%</span>
+                        </p>
+                    </li>
+                </ul>
+            </section>
+            
+            <section class="box_03 boxStyle">
+                <h2 class="hidden">게시판 영역</h2>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>지역</th>
+                            <th>기온(℃)</th>
+                            <th>일사량(W/㎡)</th>
+                            <th>바람(㎧)</th>
+                            <th>발전량(MWh)</th>
+                            <th>설비용량(MW)</th>
+                            <th>이용률(%)</th>
+                        </tr>
+                    </thead>
+                    
+                    <tbody>
+                        <tr>
+                            <td>경기도</td>
+                            <td>18.2</td>
+                            <td>463.9</td>
+                            <td>2.8</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                        </tr>
+                        <tr>
+                            <td>강원도</td>
+                            <td>18.2</td>
+                            <td>463.9</td>
+                            <td>2.8</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                        </tr>
+                        <tr>
+                            <td>충청북도</td>
+                            <td>18.2</td>
+                            <td>463.9</td>
+                            <td>2.8</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                        </tr>
+                        <tr>
+                            <td>충청남도</td>
+                            <td>18.2</td>
+                            <td>463.9</td>
+                            <td>2.8</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                        </tr>
+                        <tr>
+                            <td>전라북도</td>
+                            <td>18.2</td>
+                            <td>463.9</td>
+                            <td>2.8</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                        </tr>
+                        <tr>
+                            <td>전라남도</td>
+                            <td>18.2</td>
+                            <td>463.9</td>
+                            <td>2.8</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                        </tr>
+                        <tr>
+                            <td>경상북도</td>
+                            <td>18.2</td>
+                            <td>463.9</td>
+                            <td>2.8</td>
+                            <td>13.977</td>
+                            <td>53.400</td>
+                            <td>26.2</td>
+                        </tr>
+                        <tr>
+                            <td>경상남도</td>
+                            <td>18.2</td>
+                            <td>463.9</td>
+                            <td>2.8</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                        </tr>
+                        <tr>
+                            <td>제주특별자치도</td>
+                            <td>18.2</td>
+                            <td>463.9</td>
+                            <td>2.8</td>
+                            <td>13.977</td>
+                            <td>53.400</td>
+                            <td>26.2</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+            -->
+        </section>
+    </article>
+
+<script>
+(async () => {
+
+const topology = await fetch(
+  'https://code.highcharts.com/mapdata/countries/kr/kr-all.topo.json'
+).then(response => response.json());
+
+const data = [
+  ['kr-4194', 10],
+  ['kr-kg', 11],
+  ['kr-cb', 12],
+  ['kr-kn', 13],
+  ['kr-2685', 14],
+  ['kr-pu', 15],
+  ['kr-2688', 16],
+  ['kr-sj', 17],
+  ['kr-tj', 18],
+  ['kr-ul', 19],
+  ['kr-in', 20],
+  ['kr-kw', 21],
+  ['kr-gn', 22],
+  ['kr-cj', 23],
+  ['kr-gb', 24],
+  ['kr-so', 25],
+  ['kr-tg', 26],
+  ['kr-kj', 27]
+];
+
+let city_code = ['kr-kg', 'kr-cb', 'kr-so', 'kr-kn', 'kr-2685', 'kr-pu', 'kr-2688', 'kr-sj', 'kr-tj', 'kr-ul', 'kr-in', 'kr-kw', 'kr-gn', 'kr-cj', 'kr-gb', 'kr-tg', 'kr-kj']
+
+let city_name = ['경기도', '전북', '서울', '경상남도', '전라남도', '부산', '경상북도', '세종', '대전', '울산', '인천', '강원도', '충청남도', '제주도', '충청북도', '대구', '광주광역시']
+
+// Create the chart
+let chart = Highcharts.mapChart('regionPresentMap', {
+    exporting: {    //차트 내 메뉴 삭제
+        enabled: false
+    },
+    credits: {      //highchart 워터마크 숨김처리
+        enabled: false
+    },
+    chart: {
+        map: topology
+    },
+    title: {
+        text: ''
+    },    
+    mapNavigation: {
+        enabled: true,
+        buttonOptions: {
+        verticalAlign: 'bottom'
+        }
+    },
+    colorAxis: {
+        min: 1
+    },
+    mapView: {
+        zoom: 7
+    },
+    tooltip: {
+        formatter: function() {
+            for (let i = 0; i < city_code.length; i++) {
+                if (this.point['hc-key'] === city_code[i]) {
+                    return city_name[i] + ": " + data[i][1] + "℃"
+                }
+            }
+        }
+    },
+    series: [{
+        data: data,
+        states: {
+            hover: {
+            color: '#eaf0f4'
+            }
+        },
+        /*
+        dataLabels: {
+            enabled: true,
+            formatter: function() {
+                        for (let i = 0; i < city_code.length; i++) {
+                if (this.point['hc-key'] === city_code[i]) {
+                    return city_name[i]
+                }
+            }
+            }
+        }
+        */
+        }
+    ]
+});
+})();
+
+</script>
+</body>
+</html>

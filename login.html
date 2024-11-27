@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>대시보드 리뉴얼 - 로그인</title>
+
+    <link href="css/common.css" rel="stylesheet" type="text/css">
+    <link href="css/style.css" rel="stylesheet" type="text/css">    
+</head>
+<body>
+    <action class="login boxStyle">
+        <h2 class="hidden">로그인 영역</h2>
+
+        <div class="box_01">
+            <img src="images/loginImg.jpg" alt="로그인 이미지" class="loginImg">
+        </div>
+
+        <div class="box_02">
+            <h2>
+                <!--로고 영역-->
+
+                대시보드 리뉴얼
+            </h2>
+
+            <ul class="formList">
+                <li>
+                    <label>
+                        <input type="text" name="" value="" placeholder="아이디를 입력해주세요">
+                    </label>
+                </li>
+                <li>
+                    <label>
+                        <input type="password" name="" value="" placeholder="비밀번호를 입력해주세요">
+                    </label>
+                </li>
+                <li>
+                    <!-- 라벨 태그에 action 클래스를 넣으면 체크 상태가 됩니다 -->
+                    <label class="checkBox">
+                        <span>
+                            <input type="checkbox">
+                        </span>
+
+                        아이디 저장
+                    </label>
+                </li>
+                <li>
+                    <input type="button" value="로그인" class="button buttonBlue" onclick="pageMove()">
+                </li>
+            </ul>
+
+            <ul class="userInfo">
+                <li>
+                    <a href="#">비밀번호를 잊어버렸나요?</a>
+                </li>
+                <li>
+                    <a href="#">아직 회원이 아닌가요?</a>
+                </li>
+            </ul>
+        </div>
+    </action>
+
+    <script>
+        function pageMove() {
+            window.location.href = "predictionReport.html";
+        }
+    </script>
+</body>
+</html>
